@@ -1,2 +1,2 @@
 # CucumberScala1
-Demo for Cucumber with scala.
+Demo for Cucumber+selenium with scala.
