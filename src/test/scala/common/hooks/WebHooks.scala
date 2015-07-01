@@ -1,22 +1,25 @@
 package common.hooks
 
-import common.stepDefs.RootStepDefs
+import common.drivers.Driver
 import cucumber.api.Scenario
 import cucumber.api.java.{After, Before}
-import org.openqa.selenium.{WebDriverException, OutputType, TakesScreenshot}
+import org.openqa.selenium.{OutputType, TakesScreenshot, WebDriver, WebDriverException}
 
-class WebHooks extends RootStepDefs {
+trait WebHooks {
 
-  @Before
+  implicit val driver: WebDriver = Driver.webDriver
+
+  @Before //(Array("@wip"))
   def initialize() = {
+    println("Before this running!!!")
     driver.manage().deleteAllCookies()
-    println("is this running!!!")
     driver.manage().window().maximize()
   }
 
-  @After
+  @After //(Array("@wip"))
   def tearDown(result: Scenario) = {
-    if(result.isFailed) {
+    println("After this running!!!")
+    if (result.isFailed) {
       driver match {
         case screenshot: TakesScreenshot => {
           try {

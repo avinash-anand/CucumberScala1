@@ -1,13 +1,10 @@
 package common.stepDefs
 
-import common.drivers.Driver
+import common.hooks.WebHooks
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.WebDriver
 import org.scalatest.Matchers
 import org.scalatest.selenium.WebBrowser
 
-trait RootStepDefs extends ScalaDsl with WebBrowser with EN with Matchers {
-
-  implicit val driver: WebDriver = Driver.webDriver
+trait RootStepDefs extends ScalaDsl with WebBrowser with EN with Matchers with WebHooks {
 
 }
