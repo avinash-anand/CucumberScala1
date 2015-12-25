@@ -14,7 +14,7 @@ object Browsers {
   }
 
   def createChromeDriver: WebDriver = {
-    System.setProperty("webdriver.chrome.driver", "src/test/scala/common/drivers/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "chrome/chromedriver.exe");
     val driver = Chrome.webDriver
     driver.manage().window().maximize()
     driver.manage().deleteAllCookies()
